@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Youth African Writer Fellowship — 2026 Cohort</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Fraunces:ital,opsz,wght@1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F1E3; --panel:#FFFDF7; --hero:#1F3B32; --hero-ink:#F6F1E3;
+  --ink:#241E15; --muted:#6C6152; --rule:#D8CDB6;
+  --rust:#A0552E; --gold:#C0902E;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#151510;--panel:#1D1C15;--hero:#0F1F19;--hero-ink:#F0E9D6;--ink:#EFE9DB;--muted:#B0A691;--rule:#3A3627;--rust:#D2895A;--gold:#E0B457}
+}
+:root[data-theme="dark"]{--bg:#151510;--panel:#1D1C15;--hero:#0F1F19;--hero-ink:#F0E9D6;--ink:#EFE9DB;--muted:#B0A691;--rule:#3A3627;--rust:#D2895A;--gold:#E0B457}
+html{scroll-padding-top:56px;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+.w{max-width:920px;margin:0 auto;padding:0 24px}
+a{color:var(--rust)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0}
+
+/* running header */
+.runner{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:var(--bg);border-bottom:1px solid var(--rule)}
+.runner .w{display:flex;align-items:center;justify-content:space-between;height:52px;gap:16px}
+.runner .mark{font-family:var(--serif);font-weight:600;font-size:15px;white-space:nowrap}
+.runner .mark em{font-style:italic;color:var(--rust)}
+.runner nav{display:flex;gap:18px;overflow-x:auto}
+.runner nav a{font-size:13.5px;text-decoration:none;color:var(--muted);white-space:nowrap}
+.runner nav a:hover{color:var(--rust)}
+
+/* hero — title page */
+.hero{background:var(--hero);color:var(--hero-ink);padding:64px 0 54px;position:relative;overflow:hidden}
+.hero .w{position:relative}
+.hero .kicker{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--gold);margin-bottom:10px}
+.hero h1{font-size:clamp(34px,6.4vw,58px);line-height:1.04;font-weight:600;max-width:11ch}
+.hero .dates{font-family:var(--serif);font-style:italic;font-size:19px;margin:16px 0 20px;color:var(--hero-ink);opacity:.9}
+.hero p.lede{max-width:46ch;font-size:16.5px;opacity:.92;margin:0 0 26px}
+.hero .colophon{border-top:1px solid rgba(246,241,227,.25);margin-top:30px;padding-top:16px;display:flex;gap:22px;flex-wrap:wrap;font-size:13.5px;opacity:.85}
+.hero .sprig{position:absolute;right:-40px;top:-10px;width:230px;opacity:.9}
+
+section{padding:52px 0}
+.rule{height:1px;background:var(--rule)}
+.folio{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:14px;margin-bottom:6px}
+h2{font-size:clamp(24px,4.6vw,32px);margin-bottom:16px;max-width:20ch}
+p{color:var(--ink)}
+.lead-p{font-size:17px;color:var(--muted);max-width:64ch}
+
+/* about: asymmetric two-col */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:36px}
+@media(max-width:720px){.split{grid-template-columns:1fr}}
+.split blockquote{font-family:var(--serif);font-size:22px;line-height:1.35;margin:0 0 18px;font-weight:500}
+.split blockquote::before{content:"“";color:var(--rust)}
+.split .cite{font-size:13.5px;color:var(--muted)}
+.stat{border-top:1px solid var(--rule);padding-top:10px;margin-top:16px}
+.stat b{font-family:var(--serif);font-size:15px}
+
+/* what's covered — table-like list, not cards */
+.covered{border-top:1px solid var(--rule)}
+.covered .row{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.covered .row dt{font-family:var(--serif);font-style:italic;font-size:16px}
+.covered .row dd{margin:0;color:var(--muted);font-size:15.5px}
+@media(max-width:560px){.covered .row{grid-template-columns:1fr}}
+
+/* programme table */
+.days{overflow-x:auto;margin-top:8px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:14.5px;background:var(--panel)}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--muted);border-bottom:1px solid var(--ink)}
+tbody tr:hover{background:rgba(160,85,46,.06)}
+td:first-child{white-space:nowrap;color:var(--muted);font-size:13.5px}
+
+/* values — numbered like a manifesto, not cards */
+.principles{counter-reset:p;border-top:1px solid var(--rule)}
+.principles li{list-style:none;counter-increment:p;display:grid;grid-template-columns:44px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.principles li::before{content:counter(p, decimal-leading-zero);font-family:var(--serif);font-style:italic;color:var(--rust);font-size:16px}
+.principles h3{font-size:17px;margin-bottom:3px}
+.principles p{color:var(--muted);font-size:15px;margin:0}
+.principles{margin:0;padding:0}
+
+/* testimonials — pull quotes */
+.quotes{display:flex;flex-direction:column;gap:34px}
+.pull{max-width:66ch}
+.pull q{font-family:var(--serif);font-size:21px;font-weight:500;line-height:1.42;display:block;margin:0 0 10px;quotes:"“" "”"}
+.pull .who{font-size:13.5px;color:var(--muted);font-style:italic}
+.pull .note{font-size:12.5px;color:var(--muted);opacity:.75}
+
+.panel{background:var(--panel);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+
+footer{padding:36px 0 48px;color:var(--muted);font-size:13.5px}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--rule);padding-top:18px}
+</style>
+</head>
+<body>
+
+<div class="runner"><div class="w">
+  <div class="mark">Youth African Writer <em>Fellowship</em></div>
+  <nav>
+    <a href="#about">Vision</a>
+    <a href="#mission">Mission</a>
+    <a href="#goals">Goals</a>
+    <a href="#programme">Programme</a>
+    <a href="#values">Values</a>
+    <a href="#testimonials">Fellows</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="w">
+  <div class="kicker">The 2026 cohort</div>
+  <h1>Youth African Writer Fellowship</h1>
+  <div class="dates">11–22 October, Nairobi</div>
+  <p class="lede">A ten-day residency for a small cohort of emerging African writers, selected by review from open submissions across the continent.</p>
+  <div class="colophon">
+    <span>Selective, cohort-based admission</span>
+    <span>Nairobi, Kenya</span>
+    <span>Est. 2026</span>
+  </div>
+  <svg class="sprig" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="100" cy="60" r="40" fill="#C0902E" opacity="0.85"/>
+    <path d="M20 92 Q35 55 72 60 Q100 38 128 60 Q165 55 180 92 Q140 104 100 96 Q60 104 20 92Z" fill="#F6F1E3" opacity="0.12"/>
+    <path d="M92 96 L108 96 L112 170 L100 206 L88 170 Z" fill="#F6F1E3" opacity="0.14"/>
+  </svg>
+</div></header>
+
+<section id="about"><div class="w">
+  <div class="folio">Chapter One</div>
+  <h2>Our vision</h2>
+  <div class="split">
+    <div>
+      <blockquote>A continent where young African writers are heard, published and celebrated, and where our stories shape how Africa understands and imagines itself.”</blockquote>
+    </div>
+    <div>
+      <p class="lead-p">The fellowship is small by design. Each cohort is reviewed from open submissions, read for voice and command of the form rather than credentials or prior publication.</p>
+    </div>
+  </div>
+</div></section>
+
+<div class="w"><div class="rule"></div></div>
+
+<section id="mission" class="panel"><div class="w">
+  <div class="folio">Chapter Two</div>
+  <h2>Our mission</h2>
+  <div class="split">
+    <div>
+      <p class="lead-p" style="font-size:19px;color:var(--ink);font-family:var(--serif)">To identify, fund and develop a small number of serious young writers each year, and hold them to a high standard of craft.</p>
+    </div>
+    <div>
+      <div class="stat"><b>Identify.</b> Submissions are read blind to background; the work is judged on its own terms.</div>
+      <div class="stat"><b>Fund.</b> Cost is removed as a factor, so admission is decided on the writing alone.</div>
+      <div class="stat"><b>Develop.</b> Mentorship and editorial feedback rigorous enough to change how a fellow writes.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="goals"><div class="w">
+  <div class="folio">Chapter Three</div>
+  <h2>What we're working toward</h2>
+  <p class="lead-p">The fellowship is built to outlast any single cohort.</p>
+  <div class="stat"><b>A body of published work.</b> Each cohort's strongest writing enters a growing anthology and essay collection, held to the same editorial standard as any other publication.</div>
+  <div class="stat"><b>A standard, not a network.</b> Fellows are chosen because the work holds up under scrutiny, and the fellowship is built to keep raising that bar.</div>
+  <div class="stat"><b>A wider field to choose from.</b> Full funding means selection is never limited to writers who can already afford to attend.</div>
+</div></section>
+
+<section id="programme" class="panel"><div class="w">
+  <div class="folio">Chapter Five</div>
+  <h2>Ten days of writing</h2>
+  <p class="lead-p">Each day moves between workshop, writing lab and feedback circle. The final two days are set aside for a writing exercise, and only work that clears editorial review enters the anthology.</p>
+  <div class="days"><table>
+    <thead><tr><th>Day</th><th>Theme</th></tr></thead>
+    <tbody>
+      <tr><td>1 — Mon 12 Oct</td><td>Welcome and orientation: why we write</td></tr>
+      <tr><td>2 — Tue 13 Oct</td><td>Finding your voice I: identity, language, listening</td></tr>
+      <tr><td>3 — Wed 14 Oct</td><td>Finding your voice II and the craft of the short story</td></tr>
+      <tr><td>4 — Thu 15 Oct</td><td>Genres I: literary, speculative fiction, Afrofuturism, solarpunk</td></tr>
+      <tr><td>5 — Fri 16 Oct</td><td>Genres II: crime, romance, family sagas, young readers</td></tr>
+      <tr><td>6 — Sat 17 Oct</td><td>Scholarly writing, research and the essay</td></tr>
+      <tr><td>7 — Sun 18 Oct</td><td>The art of observation: a guided walk in Nairobi</td></tr>
+      <tr><td>8 — Mon 19 Oct</td><td>Books and anthologies: curation, editing, revision</td></tr>
+      <tr><td>9 — Tue 20 Oct</td><td>Publishing and the business of writing; writing exercise begins</td></tr>
+      <tr><td>10 — Wed 21 Oct</td><td>Writing exercise, public reading, closing ceremony</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section id="values"><div class="w">
+  <div class="folio">Chapter Six</div>
+  <h2>What we hold to</h2>
+  <ul class="principles">
+    <li><div><h3>Voice over polish</h3><p>Submissions are read for a distinct point of view before they're read for technique.</p></div></li>
+    <li><div><h3>Rigor</h3><p>Feedback is direct. A fellow's draft is treated as work in progress, not a finished achievement.</p></div></li>
+    <li><div><h3>Access on merit</h3><p>Full funding means the writing decides admission, not a fellow's means to attend.</p></div></li>
+    <li><div><h3>Craft as the standard</h3><p>Editing here is exacting. Work that enters the anthology has been through several rounds of revision.</p></div></li>
+    <li><div><h3>Cultural specificity</h3><p>African languages, histories and perspectives are treated as the subject, not a theme to explain to outsiders.</p></div></li>
+    <li><div><h3>Ownership</h3><p>Fellows keep the rights to their own work. What we offer is editorial attention, not a claim on the writing.</p></div></li>
+  </ul>
+</div></section>
+
+<section id="testimonials" class="panel"><div class="w">
+  <div class="folio">Chapter Seven — illustrative, to be replaced with real fellows' words</div>
+  <h2>From past fellows</h2>
+  <div class="quotes">
+    <div class="pull"><q>I arrived with a story I was afraid to finish. What I got back in workshop was harder than I expected — and the story is better for it.</q><div class="who">Amara O. — 2024 Fellow, Nigeria</div></div>
+    <div class="pull"><q>Admission felt like the hard part. Then the editing started, and I understood why the fellowship is selective about who it takes on.</q><div class="who">Tendai M. — 2025 Fellow, Zimbabwe</div></div>
+    <div class="pull"><q>Nobody was there to make me feel good about a draft. The feedback was exact, and it's the reason the essay ended up in the anthology at all.</q><div class="who">Aisha K. — 2025 Fellow, Kenya</div></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="w">
+  <div class="folio">Chapter Eight</div>
+  <h2>Confirming your place</h2>
+  <p class="lead-p">Selected fellows: reply to your acceptance email by 2 October 2026 to confirm. Travel, accommodation, meals, insurance and a small stipend are covered in full — details are in your acceptance email. For all other enquiries, contact details for the 2026 cohort will be announced here soon.</p>
+</div></section>
+
+<footer><div class="w">
+  <span>© 2026 Youth African Writer Fellowship</span>
+  <span>Nairobi, Kenya</span>
+</div></footer>
+
+</body>
+</html>
